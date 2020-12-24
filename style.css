@@ -16,6 +16,7 @@ a:focus { outline: 0px solid }
 img {
     max-width: 100%;
     height: auto;
+    
 }
 .fix { overflow: hidden }
 h1,
@@ -186,8 +187,9 @@ z-index: 999;}
 	transition: all 0.45s ease;
 }
 .block-slider img{
-	width: 100%;
-	height: auto;
+	width: 400px;
+    height: auto;
+   
 }
 .block-slider .bx-prev{
 	left: 0px;
