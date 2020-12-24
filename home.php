@@ -188,7 +188,7 @@ require_once 'process-php/anonymous-guest.php';
                         <div class="product-carousel">
 
                             <?php
-                            $result = selectLatestProduct();
+                            $result = selectLatestProduct(10, 1);
                             if(mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                             ?>
@@ -249,6 +249,7 @@ require_once 'process-php/anonymous-guest.php';
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top Sellers</h2>
                         <a href="" class="wid-view-more">View All</a>
+
                         <div class="single-wid-product">
                             <a href="single-product.php"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
                             <h2><a href="single-product.php">Sony Smart TV - 2015</a></h2>
@@ -345,9 +346,15 @@ require_once 'process-php/anonymous-guest.php';
                     <div class="single-product-widget">
                         <h2 class="product-wid-title">Top New</h2>
                         <a href="#" class="wid-view-more">View All</a>
+                        
+                        <?php
+                            $result = selectLatestProduct(3, 1);
+                            if(mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
                         <div class="single-wid-product">
-                            <a href="single-product.php"><img src="img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.php">Apple new i phone 6</a></h2>
+                            <a href="single-product.php"><img src="<?php echo $row['urlHinh']; ?>" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.php"><?php echo $row['TenSP']; ?></a></h2>
                             <div class="product-wid-rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -356,37 +363,14 @@ require_once 'process-php/anonymous-guest.php';
                                 <i class="fa fa-star"></i>
                             </div>
                             <div class="product-wid-price">
-                                <ins>$400.00</ins> 
+                                <ins><?php echo $row['GiaSP'] . "VNĐ"; ?></ins> 
                             </div>                            
                         </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.php"><img src="img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.php">Samsung gallaxy note 4</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> 
-                            </div>                            
-                        </div>
-                        <div class="single-wid-product">
-                            <a href="single-product.php"><img src="img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                            <h2><a href="single-product.php">Sony playstation microsoft</a></h2>
-                            <div class="product-wid-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-wid-price">
-                                <ins>$400.00</ins> 
-                            </div>                            
-                        </div>
+                        <?php
+                                }
+                            }
+                        ?>
+                        
                     </div>
                 </div>
             </div>
