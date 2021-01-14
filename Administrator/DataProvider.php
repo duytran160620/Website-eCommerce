@@ -1,5 +1,4 @@
 <?php
-// Function openConnection - Kết nối cơ sở dữ liệu 
 function openConnection() {
     $servername = "localhost";
     $username = "LTWEB_18CK2";//"eCommerce-admin";
@@ -16,5 +15,9 @@ function openConnection() {
 // Function closeConnection - Đóng kết nối cơ sở dữ liệu 
 function closeConnection($connection) {
     mysqli_close($connection);
+}
+function loadAllProduct(){
+    $qr ="select * from sanpham";
+    return mysqli_query(openConnection(),$qr);
 }
 ?>

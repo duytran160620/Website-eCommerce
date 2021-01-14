@@ -13,8 +13,7 @@
     <title>Checkout Page - Ustora Demo</title>
 
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
-        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
@@ -68,8 +67,7 @@
 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.php">Cart - <span class="cart-amunt">$100</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart.php">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
                 </div>
             </div>
@@ -89,11 +87,14 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="home.php">Home</a></li>
-                        <li><a href="shop.php">Shop page</a></li>
+                        <li class="active"><a href="home.php">Home</a></li>
+                        <li><a href="shop.php">Search Product</a></li>
                         <li><a href="cart.php">Cart</a></li>
-                        <li class="active"><a href="checkout.php">Checkout</a></li>
-                        <li><a href="category.php">Category</a></li>
+                        <li><a href="checkout.php">Checkout</a></li>
+                        <li><a href="manufacturer.php">Manufacturer</a></li>
+                        <?php
+                        require_once 'process-php/category-group.php';
+                        ?>
                     </ul>
                 </div>
             </div>
@@ -173,16 +174,14 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <div class="woocommerce-info">If you have an account. <a class="showlogin"
-                                    data-toggle="collapse" href="#login-form-wrap" aria-expanded="false"
-                                    aria-controls="login-form-wrap">Click here to login</a>
+                            <div class="woocommerce-info">If you have an account. <a class="showlogin" data-toggle="collapse" href="#login-form-wrap" aria-expanded="false" aria-controls="login-form-wrap">Click here to login</a>
                             </div>
 
                             <form id="login-form-wrap" class="login collapse" method="post">
 
 
                                 <p>If you have shopped with us before, please enter your details in the boxes below. If
-                                    you are a new customer please <a href="register.php"> sign up </a>  an account to continue shopping.
+                                    you are a new customer please <a href="register.php"> sign up </a> an account to continue shopping.
                                 </p>
 
                                 <p class="form-row form-row-first">
@@ -209,8 +208,7 @@
                             <form id="coupon-collapse-wrap" method="post" class="checkout_coupon collapse">
 
                                 <p class="form-row form-row-first">
-                                    <input type="text" value="" id="coupon_code" placeholder="Coupon code"
-                                        class="input-text" name="coupon_code">
+                                    <input type="text" value="" id="coupon_code" placeholder="Coupon code" class="input-text" name="coupon_code">
                                 </p>
 
                                 <p class="form-row form-row-last">
@@ -220,52 +218,39 @@
                                 <div class="clear"></div>
                             </form>
 
-                            <form enctype="multipart/form-data" action="#" class="checkout" method="post"
-                                name="checkout">
+                            <form enctype="multipart/form-data" action="#" class="checkout" method="post" name="checkout">
 
                                 <div id="customer_details" class="col2-set">
                                     <div class="col-1">
                                         <div class="woocommerce-billing-fields">
                                             <h3>Billing Details</h3>
-                                            <p id="billing_first_name_field"
-                                                class="form-row form-row-first validate-required">
-                                                <label class="" for="billing_first_name">Full Name <abbr
-                                                        title="required" class="required">*</abbr>
+                                            <p id="billing_first_name_field" class="form-row form-row-first validate-required">
+                                                <label class="" for="billing_first_name">Full Name <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_first_name"
-                                                    name="billing_first_name" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_first_name" name="billing_first_name" class="input-text ">
                                             </p>
 
                                             <div class="clear"></div>
 
-                                            <p id="billing_address_1_field"
-                                                class="form-row form-row-wide address-field validate-required">
-                                                <label class="" for="billing_address_1">Address <abbr title="required"
-                                                        class="required">*</abbr>
+                                            <p id="billing_address_1_field" class="form-row form-row-wide address-field validate-required">
+                                                <label class="" for="billing_address_1">Address <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="Street address"
-                                                    id="billing_address_1" name="billing_address_1" class="input-text ">
+                                                <input type="text" value="" placeholder="Street address" id="billing_address_1" name="billing_address_1" class="input-text ">
                                             </p>
 
 
                                             <div class="clear"></div>
 
-                                            <p id="billing_email_field"
-                                                class="form-row form-row-first validate-required validate-email">
-                                                <label class="" for="billing_email">Email Address <abbr title="required"
-                                                        class="required">*</abbr>
+                                            <p id="billing_email_field" class="form-row form-row-first validate-required validate-email">
+                                                <label class="" for="billing_email">Email Address <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_email"
-                                                    name="billing_email" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_email" name="billing_email" class="input-text ">
                                             </p>
 
-                                            <p id="billing_phone_field"
-                                                class="form-row form-row-last validate-required validate-phone">
-                                                <label class="" for="billing_phone">Phone <abbr title="required"
-                                                        class="required">*</abbr>
+                                            <p id="billing_phone_field" class="form-row form-row-last validate-required validate-phone">
+                                                <label class="" for="billing_phone">Phone <abbr title="required" class="required">*</abbr>
                                                 </label>
-                                                <input type="text" value="" placeholder="" id="billing_phone"
-                                                    name="billing_phone" class="input-text ">
+                                                <input type="text" value="" placeholder="" id="billing_phone" name="billing_phone" class="input-text ">
                                             </p>
                                             <div class="clear"></div>
 
@@ -274,12 +259,9 @@
                                                 <p>Create an account by entering the information below. If you are a
                                                     returning customer please login at the top of the page.</p>
                                                 <p id="account_password_field" class="form-row validate-required">
-                                                    <label class="" for="account_password">Account password <abbr
-                                                            title="required" class="required">*</abbr>
+                                                    <label class="" for="account_password">Account password <abbr title="required" class="required">*</abbr>
                                                     </label>
-                                                    <input type="password" value="" placeholder="Password"
-                                                        id="account_password" name="account_password"
-                                                        class="input-text">
+                                                    <input type="password" value="" placeholder="Password" id="account_password" name="account_password" class="input-text">
                                                 </p>
                                                 <div class="clear"></div>
                                             </div>
@@ -292,41 +274,29 @@
                                             <h3 id="ship-to-different-address">
                                                 <label class="checkbox" for="ship-to-different-address-checkbox">Ship to
                                                     a different address?</label>
-                                                <input type="checkbox" value="1" name="ship_to_different_address"
-                                                    checked="checked" class="input-checkbox"
-                                                    id="ship-to-different-address-checkbox">
+                                                <input type="checkbox" value="1" name="ship_to_different_address" checked="checked" class="input-checkbox" id="ship-to-different-address-checkbox">
                                             </h3>
                                             <div class="shipping_address" style="display: block;">
 
-                                                <p id="shipping_first_name_field"
-                                                    class="form-row form-row-first validate-required">
-                                                    <label class="" for="shipping_first_name">Full Name <abbr
-                                                            title="required" class="required">*</abbr>
+                                                <p id="shipping_first_name_field" class="form-row form-row-first validate-required">
+                                                    <label class="" for="shipping_first_name">Full Name <abbr title="required" class="required">*</abbr>
                                                     </label>
-                                                    <input type="text" value="" placeholder="" id="shipping_first_name"
-                                                        name="shipping_first_name" class="input-text ">
+                                                    <input type="text" value="" placeholder="" id="shipping_first_name" name="shipping_first_name" class="input-text ">
                                                 </p>
-                                                
+
                                                 <div class="clear"></div>
 
-                                                <p id="shipping_address_1_field"
-                                                    class="form-row form-row-wide address-field validate-required">
-                                                    <label class="" for="shipping_address_1">Address <abbr
-                                                            title="required" class="required">*</abbr>
+                                                <p id="shipping_address_1_field" class="form-row form-row-wide address-field validate-required">
+                                                    <label class="" for="shipping_address_1">Address <abbr title="required" class="required">*</abbr>
                                                     </label>
-                                                    <input type="text" value="" placeholder="Street address"
-                                                        id="shipping_address_1" name="shipping_address_1"
-                                                        class="input-text ">
+                                                    <input type="text" value="" placeholder="Street address" id="shipping_address_1" name="shipping_address_1" class="input-text ">
                                                 </p>
                                                 <div class="clear"></div>
                                             </div>
 
                                             <p id="order_comments_field" class="form-row notes">
                                                 <label class="" for="order_comments">Order Notes</label>
-                                                <textarea cols="5" rows="2"
-                                                    placeholder="Notes about your order, e.g. special notes for delivery."
-                                                    id="order_comments" class="input-text "
-                                                    name="order_comments"></textarea>
+                                                <textarea cols="5" rows="2" placeholder="Notes about your order, e.g. special notes for delivery." id="order_comments" class="input-text " name="order_comments"></textarea>
                                             </p>
 
 
@@ -368,8 +338,7 @@
                                                 <td>
 
                                                     Free Shipping
-                                                    <input type="hidden" class="shipping_method" value="free_shipping"
-                                                        id="shipping_method_0" data-home="0" name="shipping_method[0]">
+                                                    <input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-home="0" name="shipping_method[0]">
                                                 </td>
                                             </tr>
 
@@ -386,9 +355,7 @@
                                     <div id="payment">
 
                                         <div class="form-row place-order">
-                                            <input type="submit" data-value="Place order" value="Place order"
-                                                id="place_order" name="woocommerce_checkout_place_order"
-                                                class="button alt">
+                                            <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
                                         </div>
                                         <div class="clear"></div>
                                     </div>
@@ -468,8 +435,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="copyright">
-                        <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com"
-                                target="_blank">freshDesignweb.com</a></p>
+                        <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
                     </div>
                 </div>
 

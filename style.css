@@ -187,7 +187,7 @@ z-index: 999;}
 	transition: all 0.45s ease;
 }
 .block-slider img{
-	width: 400px;
+	width: 100%;
     height: auto;
    
 }

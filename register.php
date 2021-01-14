@@ -27,14 +27,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <h1>SignUp</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
-                <form action="#" method="post">
-                    <input class="text" type="text" name="Username" placeholder="Username" required="">
-                    <input class="text email" type="email" name="email" placeholder="Email" required="">
-                    <input class="text email" type="email" name="sdt" placeholder="Phonenumber">
-                    <input class="text" type="password" name="password" placeholder="Password" required="">
+                <form action="#" method="POST">
+                    <input class="text email" type="email" name="DiaChi" placeholder="Address" required="">
+                    <input class="text email" type="email" name="Email" placeholder="Email" required="">
+                    <input class="text email" type="email" name="Sdt" placeholder="PhoneNumber" required="">
+                    <input class="text" type="text" name="Username" placeholder="Username" required=""> <br><br>
+                    <input class="text" type="password" name="Password" placeholder="Password" required="">
                     <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password"
                         required="">
-                    <input type="submit" value="REGISTER">
+                    <input type="submit" value="REGISTER" name="Register">
                 </form>
                 <p>Don't have an Account? <a href="login.php"> Login Now!</a></p>
             </div>
