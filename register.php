@@ -1,3 +1,27 @@
+<?php 
+include('process-php/db-connection.php');
+?>
+<?php
+if (isset($_POST['Register'])) {
+    $fullname = $_POST['FullName'];
+    $address = $_POST['Address'];
+    $username = $_POST['Username'];
+    $password = $_POST['Password'];
+    $phonenumber = $_POST['Phonenumber'];
+   
+    echo $fullname;
+    $query = "insert into khachhang values ('','$fullname','$address','$username','$password','$phonenumber')";
+    if(mysqli_query(openConnection(), $query)) {
+        echo "ok";
+    } else{
+        echo "ko";
+    }
+    
+}
+else{
+    echo "ko";
+}
+?>
 <!--
 Author: Colorlib
 Author URL: https://colorlib.com
@@ -27,14 +51,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <h1>SignUp</h1>
         <div class="main-agileinfo">
             <div class="agileits-top">
-                <form action="#" method="POST">
-                    <input class="text email" type="email" name="DiaChi" placeholder="Address" required="">
-                    <input class="text email" type="email" name="Email" placeholder="Email" required="">
-                    <input class="text email" type="email" name="Sdt" placeholder="PhoneNumber" required="">
-                    <input class="text" type="text" name="Username" placeholder="Username" required=""> <br><br>
-                    <input class="text" type="password" name="Password" placeholder="Password" required="">
-                    <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password"
-                        required="">
+                <form action="" method="POST">
+                    <input class="text " type="text" name="FullName" placeholder="Full Name" required=""><br> </br>
+                    <input class="text " type="text" name="Address" placeholder="Address" required=""><br> </br>
+                    <input class="text " type="text" name="Username" placeholder="User Name" required=""><br> </br>
+                    <input class="text " type="text" name="Password" placeholder="Password" required=""><br> </br>
+                    <input class="text " type="text" name="Phonenumber" placeholder="Number Phone" required="">
+
+
+            
+                    
                     <input type="submit" value="REGISTER" name="Register">
                 </form>
                 <p>Don't have an Account? <a href="login.php"> Login Now!</a></p>
